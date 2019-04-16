@@ -1,0 +1,17 @@
+<div id="score" style="height: 150px; width: 760px;">
+    <canvas width="760" style="-webkit-transform: scale(0.8); -moz-transform: scale(0.8); -ms-transform: scale(0.8); -o-transform: scale(0.8); transform: scale(0.8);"></canvas>
+</div>
+<div id="piano" class="klavier"></div>
+<input id="selectedValues" name="selectedValues" type="hidden" value='{selectedValues}' />
+<script>
+    $(document).ready(function ($) {
+        $(".klavier").klavier({
+            startKey: 48,
+            endKey: 72,
+            onSelectedValuesChanged: function (values) {
+                $('#selectedValues').val("[" + values + "]");
+                renderKeys(values, $('#score canvas')[0]);
+            }
+        }).klavier("setSelectedValues", {selectedValues});
+    });
+</script>

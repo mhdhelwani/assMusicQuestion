@@ -1,0 +1,15 @@
+<div id="score{ID}" class="note-canvas">
+    <canvas width="760" style="-webkit-transform: scale(0.8); -moz-transform: scale(0.8); -ms-transform: scale(0.8); -o-transform: scale(0.8); transform: scale(0.8);"></canvas>
+</div>
+<div id="{ID}" class="klavier">
+    <div class="disabled"></div>
+</div>
+<script>
+    $(document).ready(function ($) {
+        $("#{ID}").klavier({
+            startKey: 48,
+            endKey: 72
+        }).klavier("setSelectedValues", {selectedValues});
+        renderKeys({selectedValues}, $('#score{ID} canvas')[0]);
+    });
+</script>
